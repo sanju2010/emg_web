@@ -1,0 +1,118 @@
+/**
+ * BACKUP: Traditional Terracotta & Leaf Green Theme
+ * Saved on: 2026-11-18
+ * 
+ * To restore this theme, either copy this file over theme.css
+ * or set data-theme="terracotta" on <html> or <body>.
+ */
+
+:root {
+  /* Brand Palette */
+  --primary-terracotta: #A94320;
+  --primary-hover: #8E3519;
+  --secondary-leaf-green: #47613B;
+  --secondary-green-hover: #3A4F30;
+  --secondary-green-light: #F0F4EE;
+  --accent-golden-beige: #F1D6A8;
+  --accent-gold-dark: #D4A86A;
+  --bg-warm-cream: #FFF5E9;
+  --bg-cream-card: #FFFFFF;
+  --bg-cream-soft: #FBF4EA;
+  --bg-cream-deep: #F7EBDB;
+  --text-dark-brown: #35271F;
+  --text-muted-brown: #76665A;
+  --text-light-brown: #9E8E83;
+  --border-subtle: #EADFD2;
+  --border-card: #EFE4D6;
+  --border-focus: #D28D60;
+  --white: #FFFFFF;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-telugu: 'Noto Sans Telugu', 'Mandali', 'Gautami', -apple-system, sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(53, 39, 31, 0.05);
+  --shadow-md: 0 8px 24px rgba(53, 39, 31, 0.08);
+  --shadow-lg: 0 16px 40px rgba(53, 39, 31, 0.12);
+  --shadow-modal: 0 24px 60px rgba(53, 39, 31, 0.22);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease-in-out;
+  --transition-normal: 0.28s ease-in-out;
+}
+
+/* Global resets & typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  background-color: var(--bg-warm-cream);
+  color: var(--text-dark-brown);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--bg-warm-cream);
+  color: var(--text-dark-brown);
+  line-height: 1.6;
+}
+
+/* Telugu Typography refinement */
+html[lang="te"] body,
+body.telugu-active {
+  font-family: var(--font-telugu), var(--font-sans);
+  line-height: 1.75;
+}
+
+html[lang="te"] h1,
+html[lang="te"] h2,
+html[lang="te"] h3,
+html[lang="te"] h4,
+body.telugu-active h1,
+body.telugu-active h2,
+body.telugu-active h3,
+body.telugu-active h4 {
+  font-family: var(--font-telugu), var(--font-serif);
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.telugu-script {
+  font-family: var(--font-telugu), sans-serif;
+}
+
+/* Base interactive focus */
+button, input, textarea, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* Layout Container */
+.shell {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}

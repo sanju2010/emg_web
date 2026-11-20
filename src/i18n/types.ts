@@ -1,0 +1,223 @@
+export type Language = 'en' | 'te'
+
+export interface TranslationDictionary {
+  nav: {
+    home: string
+    products: string
+    about: string
+    bulkOrders: string
+    gallery: string
+    contact: string
+    orderWhatsApp: string
+    callUs: string
+  }
+  topbar: {
+    message: string
+  }
+  hero: {
+    eyebrow: string
+    headlineStart: string
+    headlineHighlight: string
+    supporting: string
+    exploreProducts: string
+    orderWhatsApp: string
+    callUs: string
+    noteTitle: string
+    noteSub: string
+    stampText1: string
+    stampText2: string
+    badgeText: string
+  }
+  whyChoose: {
+    eyebrow: string
+    headline: string
+    card1Title: string
+    card1Desc: string
+    card2Title: string
+    card2Desc: string
+    card3Title: string
+    card3Desc: string
+    card4Title: string
+    card4Desc: string
+  }
+  categories: {
+    eyebrow: string
+    headline: string
+    supporting: string
+    explore: string
+    viewAll: string
+  }
+  featured: {
+    eyebrow: string
+    headline: string
+    supporting: string
+    viewAllCatalogue: string
+    customRequestPrompt: string
+  }
+  bulkSection: {
+    eyebrow: string
+    headline: string
+    headlineHighlight: string
+    description: string
+    cta: string
+    festivalsTitle: string
+    festivalsSub: string
+    celebrationsTitle: string
+    celebrationsSub: string
+    giftingTitle: string
+    giftingSub: string
+    corporateTitle: string
+    corporateSub: string
+  }
+  about: {
+    eyebrow: string
+    headline: string
+    headlineHighlight: string
+    sealText1: string
+    sealText2: string
+    p1: string
+    p2: string
+    p3: string
+    cta: string
+  }
+  gallery: {
+    eyebrow: string
+    headline: string
+    supporting: string
+    all: string
+    sweets: string
+    snacks: string
+    kitchen: string
+    festive: string
+    packaging: string
+    clickToEnlarge: string
+  }
+  testimonials: {
+    eyebrow: string
+    headline: string
+    sampleBadge: string
+    disclaimer: string
+  }
+  catalogue: {
+    eyebrow: string
+    headline: string
+    supporting: string
+    allFilter: string
+    searchPlaceholder: string
+    sortLabel: string
+    sortAZ: string
+    sortZA: string
+    sortPriceLow: string
+    sortPriceHigh: string
+    emptyState: string
+    showAll: string
+    enquire: string
+    viewDetails: string
+    contactForPrice: string
+    from: string
+  }
+  productModal: {
+    availableSizes: string
+    contactForPrice: string
+    ingredientsTitle: string
+    availabilityTitle: string
+    disclaimer: string
+    enquireWhatsApp: string
+    callNow: string
+    close: string
+    freshlyMade: string
+  }
+  bulkModal: {
+    title: string
+    subtitle: string
+    nameLabel: string
+    namePlaceholder: string
+    phoneLabel: string
+    phonePlaceholder: string
+    eventLabel: string
+    eventSelectPlaceholder: string
+    quantityLabel: string
+    quantityPlaceholder: string
+    dateLabel: string
+    datePlaceholder: string
+    messageLabel: string
+    messagePlaceholder: string
+    submitButton: string
+    note: string
+    successNotice: string
+  }
+  enquiryForm: {
+    sectionEyebrow: string
+    sectionHeadline: string
+    sectionHeadlineHighlight: string
+    sectionDesc: string
+    chatWhatsAppTitle: string
+    callUsTitle: string
+    dropNoteTitle: string
+    formHeadingBadge: string
+    formHeadingTitle: string
+    formHeadingDesc: string
+    nameLabel: string
+    namePlaceholder: string
+    phoneLabel: string
+    phonePlaceholder: string
+    emailLabel: string
+    emailPlaceholder: string
+    optional: string
+    productLabel: string
+    productPlaceholder: string
+    quantityLabel: string
+    quantityPlaceholder: string
+    messageLabel: string
+    messagePlaceholder: string
+    submitButton: string
+    successNotice: string
+  }
+  footer: {
+    tagline: string
+    exploreTitle: string
+    treatsTitle: string
+    contactTitle: string
+    privacy: string
+    terms: string
+    copyright: string
+    loveBadge: string
+    sampleNotice: string
+  }
+  floating: {
+    chat: string
+    call: string
+  }
+  cart: {
+    title: string
+    emptyTitle: string
+    emptySubtitle: string
+    exploreButton: string
+    itemCountSingular: string
+    itemCountPlural: string
+    packageLabel: string
+    quantityLabel: string
+    unitPrice: string
+    subtotal: string
+    deliveryNote: string
+    customerInfoTitle: string
+    nameLabel: string
+    namePlaceholder: string
+    phoneLabel: string
+    phonePlaceholder: string
+    addressLabel: string
+    addressPlaceholder: string
+    notesLabel: string
+    notesPlaceholder: string
+    orderViaWhatsApp: string
+    copyOrder: string
+    orderCopied: string
+    callToOrder: string
+    clearCart: string
+    addToCart: string
+    addedToCart: string
+    viewCart: string
+    itemsInCart: string
+    requiredField: string
+  }
+}

@@ -1,0 +1,204 @@
+/**
+ * Theme Variables & Design Tokens
+ * 
+ * ACTIVE THEME: Slate / Neutral Modern
+ * Colors requested:
+ *   primary:        #E6EBEF (cool light slate accent & surface fill)
+ *   textColor:      #111518 (deep slate black for headings, titles, strong text)
+ *   paragraphColor: #212A30 (slate for paragraphs, descriptions, secondary copy)
+ *   borderColor:    #E6EBEF (clean light slate borders)
+ *   numberColor:    #575757 (medium gray for numbers, counts, and metadata)
+ *   lightBg:        #FAFBFC (crisp off-white background)
+ *   btnbg:          #e0e4e9 (cool slate button background)
+ *
+ * BACKUP THEME: Traditional Terracotta & Leaf Green
+ * Saved in: src/styles/theme.backup.css
+ * Can also be activated anytime by adding data-theme="terracotta" to <html> or <body>.
+ */
+
+:root {
+  /* ========================================================================
+     REQUESTED THEME PALETTE TOKENS
+     ======================================================================== */
+  --color-primary: #E6EBEF;
+  --color-text: #111518;
+  --color-paragraph: #212A30;
+  --color-border: #E6EBEF;
+  --color-number: #575757;
+  --color-light-bg: #FAFBFC;
+  --color-btn-bg: #e0e4e9;
+  --color-btn-hover: #d2d8df;
+  --color-btn-text: #111518;
+  --color-btn-border: #d0d6dc;
+
+  /* ========================================================================
+     BRAND PALETTE MAPPING
+     ======================================================================== */
+  --primary-terracotta: #111518;          /* High-contrast deep slate for titles, logos, accents */
+  --primary-hover: #212A30;               /* Hover for primary items */
+  --primary-tint: #E6EBEF;                /* Requested primary */
+
+  --secondary-leaf-green: #212A30;        /* Deep slate for top banner, chips, badges */
+  --secondary-green-hover: #111518;
+  --secondary-green-light: #E6EBEF;       /* Soft light slate for badge backgrounds */
+
+  --accent-golden-beige: #E6EBEF;         /* Subtle neutral surface accent */
+  --accent-gold-dark: #575757;            /* Number / metadata tone */
+
+  --bg-warm-cream: #FAFBFC;               /* Requested lightBg: #FAFBFC */
+  --bg-cream-card: #FFFFFF;               /* Pure white card surface */
+  --bg-cream-soft: #FAFBFC;               /* Requested lightBg */
+  --bg-cream-deep: #E6EBEF;               /* Requested primary: #E6EBEF for subtle contrast panels */
+
+  --text-dark-brown: #111518;             /* Requested textColor: #111518 */
+  --text-muted-brown: #212A30;            /* Requested paragraphColor: #212A30 */
+  --text-light-brown: #575757;            /* Requested numberColor: #575757 */
+
+  --border-subtle: #E6EBEF;               /* Requested borderColor: #E6EBEF */
+  --border-card: #E6EBEF;                 /* Requested borderColor: #E6EBEF */
+  --border-focus: #111518;                /* Focused input border */
+  --white: #FFFFFF;
+
+  /* Button Tokens */
+  --btn-bg: #e0e4e9;                      /* Requested btnbg: #e0e4e9 */
+  --btn-hover: #d2d8df;
+  --btn-text: #111518;
+  --btn-border: #d0d6dc;
+
+  /* Section backgrounds */
+  --footer-bg: #111518;
+  --promo-bg: linear-gradient(135deg, #212A30 0%, #111518 100%);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-telugu: 'Noto Sans Telugu', 'Mandali', 'Gautami', -apple-system, sans-serif;
+
+  /* Elevation Shadows (Neutral Slate) */
+  --shadow-sm: 0 2px 8px rgba(17, 21, 24, 0.04);
+  --shadow-md: 0 8px 24px rgba(17, 21, 24, 0.06);
+  --shadow-lg: 0 16px 40px rgba(17, 21, 24, 0.08);
+  --shadow-modal: 0 24px 60px rgba(17, 21, 24, 0.16);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease-in-out;
+  --transition-normal: 0.28s ease-in-out;
+}
+
+/* ==========================================================================
+   BACKUP THEME SELECTOR: Traditional Terracotta & Green
+   To activate dynamically, add data-theme="terracotta" to <html> or <body>
+   ========================================================================== */
+[data-theme="terracotta"] {
+  --primary-terracotta: #A94320;
+  --primary-hover: #8E3519;
+  --primary-tint: #F7EBDB;
+
+  --secondary-leaf-green: #47613B;
+  --secondary-green-hover: #3A4F30;
+  --secondary-green-light: #F0F4EE;
+
+  --accent-golden-beige: #F1D6A8;
+  --accent-gold-dark: #D4A86A;
+
+  --bg-warm-cream: #FFF5E9;
+  --bg-cream-card: #FFFFFF;
+  --bg-cream-soft: #FBF4EA;
+  --bg-cream-deep: #F7EBDB;
+
+  --text-dark-brown: #35271F;
+  --text-muted-brown: #76665A;
+  --text-light-brown: #9E8E83;
+
+  --border-subtle: #EADFD2;
+  --border-card: #EFE4D6;
+  --border-focus: #D28D60;
+  --white: #FFFFFF;
+
+  --btn-bg: #A94320;
+  --btn-hover: #8E3519;
+  --btn-text: #FFFFFF;
+  --btn-border: #A94320;
+
+  --footer-bg: #2D211A;
+  --promo-bg: linear-gradient(135deg, #3A4F30 0%, #2E3E26 100%);
+
+  --shadow-sm: 0 2px 8px rgba(53, 39, 31, 0.05);
+  --shadow-md: 0 8px 24px rgba(53, 39, 31, 0.08);
+  --shadow-lg: 0 16px 40px rgba(53, 39, 31, 0.12);
+  --shadow-modal: 0 24px 60px rgba(53, 39, 31, 0.22);
+}
+
+/* Global resets & typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  background-color: var(--bg-warm-cream);
+  color: var(--text-dark-brown);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--bg-warm-cream);
+  color: var(--text-dark-brown);
+  line-height: 1.6;
+}
+
+/* Telugu Typography refinement */
+html[lang="te"] body,
+body.telugu-active {
+  font-family: var(--font-telugu), var(--font-sans);
+  line-height: 1.75;
+}
+
+html[lang="te"] h1,
+html[lang="te"] h2,
+html[lang="te"] h3,
+html[lang="te"] h4,
+body.telugu-active h1,
+body.telugu-active h2,
+body.telugu-active h3,
+body.telugu-active h4 {
+  font-family: var(--font-telugu), var(--font-serif);
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.telugu-script {
+  font-family: var(--font-telugu), sans-serif;
+}
+
+/* Base interactive focus */
+button, input, textarea, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+/* Layout Container */
+.shell {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
