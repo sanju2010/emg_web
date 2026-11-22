@@ -11,18 +11,18 @@ export const business = {
   taglineTe: 'నిజమైన రుచి. ఇంటి స్వచ్ఛత.',
   altTagline: 'Tradition in Every Bite.',
   altTaglineTe: 'ప్రతి ముద్దలో సంప్రదాయం.',
-  whatsappNumber: '919182375209', // Digits only with country code (e.g. 919876543210)
-  phone: '+91 9182375209',
-  rawPhone: '+919182375209',
-  email: 'hello@example.com',
-  address: 'South India, India',
+  whatsappNumber: '919701157034', // Digits only with country code (e.g. 919876543210)
+  phone: '+91 9701157034',
+  rawPhone: '+919701157034',
+  email: 'shirishasyd@gmail.com',
+  address: 'Gandhi Nagar south, Road no. 15, Vanastalipuram, Hyderabad - 500070, India',
   hours: 'Mon – Sun: 9:00 AM – 8:00 PM',
   instagram: 'https://www.instagram.com/eatm_ovegrow',
   youtube: 'https://www.youtube.com/@Shirishafoodie',
-  facebook: 'https://facebook.com',
+  facebook: 'https://facebook.com/shirisha.chinne',
   currency: '₹',
   currencyCode: 'INR',
-  websiteUrl: 'https://www.eatmovegrow.com',
+  websiteUrl: 'https://www.eatmovegrow.in',
 }
 
 export type BusinessConfig = typeof business
