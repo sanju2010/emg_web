@@ -12,7 +12,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenBulkOrder }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { t, language } = useLanguage()
+  const { t } = useLanguage()
   const { totalCount, setIsCartOpen } = useCart()
 
   const navLinks = [
