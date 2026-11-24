@@ -103,6 +103,9 @@ export interface TranslationDictionary {
     headline: string
     supporting: string
     allFilter: string
+    categoriesTitle: string
+    clearFilters: string
+    filterBtnMobile: string
     searchPlaceholder: string
     sortLabel: string
     sortAZ: string

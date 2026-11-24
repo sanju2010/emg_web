@@ -5,7 +5,7 @@ export interface ProductCategory {
   shortDescEn: string
   shortDescTe: string
   image: string
-  group: 'sweets' | 'snacks' | 'millets'
+  group: 'sweets' | 'snacks' | 'millets' | 'podis' | 'pickles' | 'catering'
   featured?: boolean
 }
 
@@ -71,6 +71,26 @@ export const categories: ProductCategory[] = [
     featured: true,
   },
   {
+    id: 'karam-podis',
+    nameEn: 'Karam Podis & Masalas',
+    nameTe: 'కారం పొడులు & మసాలాలు',
+    shortDescEn: 'Aromatic, hand-pounded authentic spice powders and herbal podis made with pure spices.',
+    shortDescTe: 'స్వచ్ఛమైన దినుసులతో రోట్లో దంచిన ఘుమఘుమలాడే సాంప్రదాయ కారం పొడులు మరియు మసాలాలు.',
+    image: '/images/karam-podi.jpeg',
+    group: 'podis',
+    featured: true,
+  },
+  {
+    id: 'pickles',
+    nameEn: 'Traditional Pickles & Pastes',
+    nameTe: 'సాంప్రదాయ పచ్చళ్ళు & పేస్ట్‌లు',
+    shortDescEn: 'Heritage Andhra Avakaya, seasonal veg & non-veg pickles, and temple-style pulihora pastes.',
+    shortDescTe: 'కమ్మని ఆవకాయ, ఘాటైన వెజ్ & నాన్-వెజ్ నిల్వ పచ్చళ్ళు మరియు రుచికరమైన పులిహోర పేస్ట్‌లు.',
+    image: '/images/avakaya-pickle.jpeg',
+    group: 'pickles',
+    featured: true,
+  },
+  {
     id: 'festival-specials',
     nameEn: 'Festival Specials',
     nameTe: 'పండుగ ప్రత్యేకాలు',
@@ -79,5 +99,15 @@ export const categories: ProductCategory[] = [
     image: '/images/hero-assortment.jpeg',
     group: 'sweets',
     featured: true,
+  },
+  {
+    id: 'catering',
+    nameEn: 'Catering & Feasts',
+    nameTe: 'కేటరింగ్ & విందు భోజనాలు',
+    shortDescEn: 'Authentic South Indian vegetarian and non-vegetarian catering for festive celebrations.',
+    shortDescTe: 'శుభకార్యాలు, పండుగలకు స్వచ్ఛమైన సాంప్రదాయ శాకాహార మరియు మాంసాహార కేటరింగ్ సర్వీసెస్.',
+    image: '/images/hero-assortment.jpeg',
+    group: 'catering',
+    featured: false,
   },
 ]

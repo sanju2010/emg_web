@@ -9,6 +9,7 @@ import {
   Sparkles,
   Award,
   ChevronDown,
+  X,
 } from 'lucide-react'
 import { business } from '../../config/business'
 import { products, type Product } from '../../data/products'
@@ -19,7 +20,7 @@ import { openWhatsApp, callBusiness } from '../../utils/whatsapp'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { ProductGrid } from '../../components/ProductGrid/ProductGrid'
 import { CategoryCard } from '../../components/CategoryCard/CategoryCard'
-import { ProductFilters } from '../../components/ProductFilters/ProductFilters'
+import { ProductFilters, CatalogueToolbar } from '../../components/ProductFilters/ProductFilters'
 import { EnquiryForm } from '../../components/EnquiryForm/EnquiryForm'
 import { TestimonialCard } from '../../components/TestimonialCard/TestimonialCard'
 
@@ -34,23 +35,52 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   const { language, t } = useLanguage()
 
-  // Catalogue state
-  const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  // Catalogue state - multi-category selection
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [sortBy, setSortBy] = useState<string>('name-asc')
   const [showAllInCatalogue, setShowAllInCatalogue] = useState<boolean>(false)
+
+  // Precompute category product counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {}
+    for (const p of products) {
+      counts[p.categoryId] = (counts[p.categoryId] || 0) + 1
+    }
+    return counts
+  }, [])
 
   // Featured 8 products for homepage
   const featuredProducts = useMemo(() => {
     return products.filter((p) => p.featured).slice(0, 8)
   }, [])
 
+  // Category toggle handler for multi-select
+  const handleToggleCategory = (catId: string) => {
+    setSelectedCategories((prev) => {
+      if (prev.includes(catId)) {
+        return prev.filter((id) => id !== catId)
+      } else {
+        return [...prev, catId]
+      }
+    })
+    setShowAllInCatalogue(true)
+  }
+
+  const handleSelectAllCategories = () => {
+    setSelectedCategories([])
+  }
+
+  const handleClearCategories = () => {
+    setSelectedCategories([])
+  }
+
   // Filtered catalogue products
   const filteredCatalogue = useMemo(() => {
     return products
       .filter((p) => {
         const matchesCategory =
-          selectedCategory === 'all' || p.categoryId === selectedCategory
+          selectedCategories.length === 0 || selectedCategories.includes(p.categoryId)
         const nameToSearch = (language === 'te' ? p.nameTe + ' ' + p.nameEn : p.nameEn + ' ' + p.nameTe).toLowerCase()
         const matchesSearch =
           !searchQuery.trim() || nameToSearch.includes(searchQuery.toLowerCase().trim())
@@ -67,19 +97,19 @@ export const HomePage: React.FC<HomePageProps> = ({
         if (sortBy === 'price-desc') return priceB - priceA
         return 0
       })
-  }, [selectedCategory, searchQuery, sortBy, language])
+  }, [selectedCategories, searchQuery, sortBy, language])
 
-  // Limit initially displayed in catalogue unless expanded or searching
+  // Limit initially displayed in catalogue unless expanded, searching, or filtering
   const displayedCatalogue = useMemo(() => {
-    if (showAllInCatalogue || searchQuery.trim() || selectedCategory !== 'all') {
+    if (showAllInCatalogue || searchQuery.trim() || selectedCategories.length > 0) {
       return filteredCatalogue
     }
     return filteredCatalogue.slice(0, 8)
-  }, [filteredCatalogue, showAllInCatalogue, searchQuery, selectedCategory])
+  }, [filteredCatalogue, showAllInCatalogue, searchQuery, selectedCategories])
 
   // Category card click handler: smoothly scroll to catalogue with that category active
   const handleCategoryCardClick = (catId: string) => {
-    setSelectedCategory(catId)
+    setSelectedCategories([catId])
     setShowAllInCatalogue(true)
     const el = document.querySelector('#catalogue')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -341,33 +371,88 @@ export const HomePage: React.FC<HomePageProps> = ({
             <p className="section-subtitle">{t.catalogue.supporting}</p>
           </div>
 
-          <ProductFilters
-            selectedCategory={selectedCategory}
-            onSelectCategory={setSelectedCategory}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            sortBy={sortBy}
-            onSortChange={setSortBy}
-          />
+          <div className="catalogue-layout-container">
+            {/* Left Sidebar Menu with Category Checkboxes */}
+            <ProductFilters
+              selectedCategories={selectedCategories}
+              onToggleCategory={handleToggleCategory}
+              onSelectAll={handleSelectAllCategories}
+              onClearCategories={handleClearCategories}
+              categoryCounts={categoryCounts}
+              totalCount={products.length}
+            />
 
-          <ProductGrid
-            products={displayedCatalogue}
-            onSelect={onSelectProduct}
-            emptyMessage={t.catalogue.emptyState}
-          />
+            {/* Right Main Column with Toolbar, Active Chips, and Products */}
+            <div className="catalogue-main-content">
+              <CatalogueToolbar
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                sortBy={sortBy}
+                onSortChange={setSortBy}
+                totalShowing={displayedCatalogue.length}
+                totalAvailable={filteredCatalogue.length}
+              />
 
-          {!showAllInCatalogue && !searchQuery.trim() && selectedCategory === 'all' && (
-            <div className="section-footer-cta">
-              <button
-                type="button"
-                className="button button-outline"
-                onClick={() => setShowAllInCatalogue(true)}
-              >
-                <span>{t.catalogue.showAll} ({products.length})</span>
-                <ArrowRight size={16} />
-              </button>
+              {/* Active Filter Chips */}
+              {selectedCategories.length > 0 && (
+                <div className="active-filters-bar" aria-label="Active category filters">
+                  <span className="active-filters-label">
+                    {language === 'te' ? 'ఎంపిక చేసిన వర్గాలు:' : 'Active filters:'}
+                  </span>
+                  <div className="active-filter-chips-list">
+                    {selectedCategories.map((catId) => {
+                      const cat = categories.find((c) => c.id === catId)
+                      if (!cat) return null
+                      const label = language === 'te' ? cat.nameTe : cat.nameEn
+                      return (
+                        <button
+                          key={catId}
+                          type="button"
+                          className="active-filter-chip"
+                          onClick={() => handleToggleCategory(catId)}
+                          title={language === 'te' ? `${label} తీసివేయి` : `Remove ${label}`}
+                        >
+                          <span>{label}</span>
+                          <X size={13} className="chip-remove-icon" />
+                        </button>
+                      )
+                    })}
+                    <button
+                      type="button"
+                      className="active-filters-clear-btn"
+                      onClick={handleClearCategories}
+                    >
+                      {t.catalogue.clearFilters}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              <ProductGrid
+                products={displayedCatalogue}
+                onSelect={onSelectProduct}
+                emptyMessage={t.catalogue.emptyState}
+              />
+
+              {!showAllInCatalogue &&
+                !searchQuery.trim() &&
+                selectedCategories.length === 0 &&
+                filteredCatalogue.length > 8 && (
+                  <div className="section-footer-cta">
+                    <button
+                      type="button"
+                      className="button button-outline"
+                      onClick={() => setShowAllInCatalogue(true)}
+                    >
+                      <span>
+                        {t.catalogue.showAll} ({products.length})
+                      </span>
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                )}
             </div>
-          )}
+          </div>
         </div>
       </section>
 

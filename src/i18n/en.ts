@@ -105,8 +105,11 @@ export const en: TranslationDictionary = {
     headline: 'Our Complete Product Catalogue',
     supporting:
       'Every item is prepared fresh upon order to preserve authentic crunch, aroma, and taste.',
-    allFilter: 'All Treats',
-    searchPlaceholder: 'Search sweets, snacks, murukulu, laddus...',
+    allFilter: 'All Categories',
+    categoriesTitle: 'Categories',
+    clearFilters: 'Clear All',
+    filterBtnMobile: 'Filter by Category',
+    searchPlaceholder: 'Search sweets, snacks, pickles, podis...',
     sortLabel: 'Sort Catalogue',
     sortAZ: 'Name: A to Z',
     sortZA: 'Name: Z to A',
