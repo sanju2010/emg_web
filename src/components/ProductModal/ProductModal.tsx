@@ -165,7 +165,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
 
             {/* Ingredients & Prep */}
             {ingredients && (
-              <div className="modal-meta-box">
+              <div className="modal-meta-box" style={{ display: 'none'}}>
                 <h4>{t.productModal.ingredientsTitle}</h4>
                 <p>{ingredients}</p>
               </div>

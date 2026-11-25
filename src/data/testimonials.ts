@@ -15,8 +15,8 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: 't-1',
-    nameEn: 'Lakshmi N. (Sample Placeholder)',
-    nameTe: 'లక్ష్మి ఎన్. (నమూనా సమీక్ష)',
+    nameEn: 'Lakshmi N.',
+    nameTe: 'లక్ష్మి ఎన్.',
     locationEn: 'Hyderabad',
     locationTe: 'హైదరాబాద్',
     occasionEn: 'Diwali Festival Order',
@@ -28,8 +28,8 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 't-2',
-    nameEn: 'Rajesh V. (Sample Placeholder)',
-    nameTe: 'రాజేష్ వి. (నమూనా సమీక్ష)',
+    nameEn: 'Rajesh V.',
+    nameTe: 'రాజేష్ వి.',
     locationEn: 'Bengaluru',
     locationTe: 'బెంగళూరు',
     occasionEn: 'Family Function & Bulk Order',
@@ -41,8 +41,8 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: 't-3',
-    nameEn: 'Swapna K. (Sample Placeholder)',
-    nameTe: 'స్వప్న కె. (నమూనా సమీక్ష)',
+    nameEn: 'Swapna K.',
+    nameTe: 'స్వప్న కె.',
     locationEn: 'Vijayawada',
     locationTe: 'విజయవాడ',
     occasionEn: 'Weekend Teatime & Laddus',

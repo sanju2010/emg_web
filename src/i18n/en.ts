@@ -12,7 +12,7 @@ export const en: TranslationDictionary = {
     callUs: 'Call Us',
   },
   topbar: {
-    message: 'Authentic South Indian Homemade Sweets & Savouries ✳ Freshly Prepared to Order',
+    message: 'Authentic South Indian Homemade Sweets & Savouries • Freshly Prepared to Order',
   },
   hero: {
     eyebrow: 'A Taste of Pure Homemade Tradition',

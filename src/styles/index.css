@@ -960,16 +960,6 @@
   overflow: hidden;
 }
 
-.bulk-promo-section::before {
-  content: '✳';
-  position: absolute;
-  top: -40px;
-  right: 5%;
-  font-size: 260px;
-  color: rgba(255, 255, 255, 0.03);
-  pointer-events: none;
-}
-
 .bulk-promo-inner {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
